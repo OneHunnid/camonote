@@ -9,10 +9,10 @@ app.prepare()
 .then(() => {
   const server = express()
 
-  // Tutorial: How to render query params server side
-  server.get('/p/:id', (req, res) => {
-    const actualPage = '/post'
-    const queryParams = { id: req.params.id }
+  // render query params server side
+  server.get('/c/:id', (req, res) => {
+    const actualPage = '/channel'
+    const queryParams = { name: req.params.id }
     app.render(req, res, actualPage, queryParams)
   })
 
