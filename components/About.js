@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 const About = () => (
   <div className="about container">
+
     <div className="about__title">Whats the deal?</div>
     <div className="about__description">We’ve built an open-source, anonymous conversation platform.</div>
 

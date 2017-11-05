@@ -1,12 +1,15 @@
 .header {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: none;
+  z-index: 9999;
 
   &__circle {
     @extend .gradient--sunset;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 1200px) {
     display: block;
     padding: 1.2rem 6.4rem;
 
@@ -16,14 +19,14 @@
       border-radius: 100%;
       background-color: $pug;
       position: absolute;
-      top: -303px;
-      left: -303px;
+      top: -327px;
+      left: -327px;
       z-index: -1;
     }
   }
 
   @media (min-width: 1200px) {
-    padding: 1.2rem 9.8rem;
+    // padding: 1.2rem 9.8rem;
   }
 }
 
