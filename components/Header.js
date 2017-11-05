@@ -5,13 +5,11 @@ const linkStyle = {
 }
 
 const Header = () => (
-    <div>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
+    <div className="header container--large">
+    <div className="header__circle"></div>
+      <Link href="/">
+        <a className="logo">Camonote</a>
+      </Link>
     </div>
 )
 

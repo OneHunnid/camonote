@@ -1,0 +1,35 @@
+.header {
+  position: relative;
+  display: none;
+
+  &__circle {
+    @extend .gradient--sunset;
+  }
+
+  @media (min-width: 800px) {
+    display: block;
+    padding: 1.2rem 6.4rem;
+
+    &__circle {
+      width: 500px;
+      height: 500px;
+      border-radius: 100%;
+      background-color: $pug;
+      position: absolute;
+      top: -303px;
+      left: -303px;
+      z-index: -1;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    padding: 1.2rem 9.8rem;
+  }
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: $w-semi;
+  color: $black;
+  text-transform: lowercase;
+}

@@ -7,18 +7,19 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  background-color: $white;
+  background-color: $cream;
 }
 
 body {
   font-family: $font-family--primary;
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: $w-regular;
   line-height: 1.6;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  padding: 50px;
+  // max-width: 1400px;
+  // margin: 0 auto;
 }
 
 h1 {
@@ -81,8 +82,69 @@ h6 {
   margin-bottom: 2.4rem;
 }
 
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.container--large {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+
+  &--about {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+
 p {
   margin: 0;
   margin-bottom: 2.4rem;
   color: $black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  padding: 2rem 2.4rem;
+  display: inline-block;
+  cursor: pointer;
+
+  &--primary {
+    background: $blue;
+    color: $white;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    font-weight: $w-semi;
+
+    &:hover {
+
+    }
+  }
+
+  &--secondary {
+    color: $black;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    font-weight: $w-semi;
+    opacity: 0.60;
+    transition: opacity 0.16s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }

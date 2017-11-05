@@ -1,8 +1,43 @@
-// Font Stacks
-$font-family--primary   : 'Helvetica Neue', Helvetica, Arial, sans-serif;
+// Font Stacks & Weights
+$font-family--primary   : 'Sofia Pro', Helvetica, Arial, sans-serif;
 $font-family--secondary : 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
+$w-light: 300;
+$w-regular: 400;
+$w-medium: 500;
+$w-semi: 600;
+$w-bold: 700;
+$w-black: 800;
+
 // Colors
-$white : #FFFFFF;
-$black : #000000;
-$dark  : #0D0D0D;
+$black              : #1C1C1C;
+$gray--dark         : #343434;
+$gray--light        : #D9DDE0;
+$cream              : #FDFCFB;
+$white              : #FFFFFF;
+
+$blue               : #5BC6FB;
+$red                : #FB5B5B;
+$yellow             : #D9DDE0;
+$purple             : #5B73FB;
+
+$blue--secondary    : #81D7FF;
+$teal               : #A2F5F3;
+$purple--secondary  : #C4BDF7;
+$red--secondary     : #FF9A9E;
+$peach              : #FCB69F;
+$pug                : #FFECD2;
+$yellow--secondary  : #FBFCDB;
+
+// Gradients
+.gradient--sunset {
+  background-image: linear-gradient(-135deg, $red--secondary 0%, $peach 100%);
+}
+
+.gradient--sunrise {
+  background-image: linear-gradient(-135deg, $red--secondary 0%, $yellow--secondary 100%);
+}
+
+.gradient--mint-lemonade {
+  background-image: linear-gradient(-135deg, $teal 0%, $yellow--secondary 100%);
+}

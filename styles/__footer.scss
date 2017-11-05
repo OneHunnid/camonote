@@ -1,0 +1,79 @@
+.prefooter {
+  display: none;
+
+  @media(min-width: 800px) {
+    display: block;
+    position: relative;
+    padding: 3.6rem;
+    background-image: linear-gradient(-135deg, $red--secondary 0%, $peach 100%);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.6;
+    background-image: linear-gradient(-135deg, $red--secondary 0%, $peach 100%);
+    background: url('static/patterns/classic.png') center center repeat;
+    background-size: 250px;
+  }
+
+  &__card {
+    position: relative;
+    margin: 0 auto;
+    max-width: 400px;
+    background: $white;
+    padding: 7.2rem 5.4rem;
+    border-radius: 4px;
+    box-shadow: 0 12px 12px 0 rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  &__description {
+    margin-top: 1.8rem;
+    font-weight: $w-regular;
+    font-size: 1.8rem;
+    opacity: 0.8;
+  }
+}
+
+.footer {
+  display: none;
+  background: $white;
+
+  @media(min-width: 800px) {
+    display: flex;
+    align-items: center;
+    padding: 3.6rem;
+  }
+
+  @media(min-width: 800px) {
+    padding: 3.6rem 6.4rem;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  &__links {
+      margin-right: 4.8rem;
+  }
+
+  &__links__item {
+    font-size: 1.5rem;
+    font-weight: $w-medium;
+    color: $black;
+  }
+
+  &__social {
+
+  }
+}
