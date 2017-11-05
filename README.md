@@ -1,1 +1,1 @@
-Milkshake is template to build React applications utilizing server-side render and SCSS.
+Camonote - The real-time anonymous chat application with messages that delete after 24 hours.
