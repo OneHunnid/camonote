@@ -1,5 +1,7 @@
 import Layout from '../components/MyLayout.js'
+import Chat from '../components/Chat.js'
 import React from 'react'
+import getMessages from '../lib/get-messages.js'
 
 class Channel extends React.Component {
   constructor(props) {
@@ -8,14 +10,19 @@ class Channel extends React.Component {
   componentWillMount() {
     const key = this.props.url.query.name;
 
-    console.log(key)
+    // send key to getMessages and return firebase obj
+    // getMessages(key)
+
+    // send obj as prop to <Chat />
   }
   render() {
-    console.log(this.props)
     return (
       <Layout>
        <h1>{this.props.url.query.name}</h1>
        <div>Text and stuff can go here...</div>
+
+       <Chat />
+
       </Layout>
     )
   }
