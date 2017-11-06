@@ -6,22 +6,24 @@ import getMessages from '../lib/get-messages.js'
 class Channel extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {data: {}};
   }
   componentWillMount() {
-    const key = this.props.url.query.name;
+    const key = this.props.url.query.name
+    let fbData = getMessages(key)
 
-    // send key to getMessages and return firebase obj
-    // getMessages(key)
-
-    // send obj as prop to <Chat />
+    fbData.then((messages) => {
+      this.setState({data: messages})
+    })
   }
   render() {
+
+    console.log(this)
     return (
       <Layout>
        <h1>{this.props.url.query.name}</h1>
-       <div>Text and stuff can go here...</div>
 
-       <Chat />
+       <Chat data={this.state.data}/>
 
       </Layout>
     )
