@@ -16,7 +16,8 @@ export default class Chat extends React.Component {
 
       $('#chatMessageList').append(
         $('<div/>')
-        .addClass("chat-message")
+        .append($('</div>'))
+        .addClass("chat__message")
         .append("<span/>")
         .text(message)
       );
@@ -27,6 +28,10 @@ export default class Chat extends React.Component {
     return (
       <div className="chat-ui">
         <div id="chatMessageList"></div>
+        <form className="form-comment">
+          <input type="text" className="input-message" placeholder="Type a message..."/>
+          <div className="button--send">Send</div>
+        </form>
       </div>
     )
   }

@@ -122,6 +122,13 @@ a {
   text-decoration: none;
 }
 
+input {
+
+  &:focus {
+    outline: none;
+  }
+}
+
 input[type=search]::placeholder {
   color: $white;
 }

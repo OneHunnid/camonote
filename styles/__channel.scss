@@ -19,3 +19,23 @@
   height: 100vh;
   display: flex;
 }
+
+.form-comment {
+  margin-top: 3.6rem;
+  margin-bottom: 1.8rem;
+  display: flex;
+}
+
+.input-message {
+  padding: 1.6rem 2.4rem;
+  border: 2px solid $gray--light;
+  border-radius: 8px 0 0 8px;
+  width: 100%;
+}
+
+.button--send {
+  background: $gray--light;
+  border-radius: 0 8px 8px 0;
+  padding: 1.8rem 2.4rem 1.4rem 2.4rem;
+  cursor: pointer;
+}
