@@ -122,6 +122,36 @@ a {
   text-decoration: none;
 }
 
+input[type=search]::placeholder {
+  color: $white;
+}
+
+.form-search {
+  display: inline-block;
+}
+
+.search {
+  padding: 2.4rem;
+  display: inline-block;
+  cursor: pointer;
+  background: $blue;
+  border: none;
+  color: $white;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  font-weight: $w-semi;
+  min-width: 232px;
+
+  &:hover {
+
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
 .button {
   padding: 2rem 2.4rem;
   display: inline-block;

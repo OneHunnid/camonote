@@ -25,7 +25,7 @@ export default class Chat extends React.Component {
   render() {
     this.__createMessagesList()
     return (
-      <div className="">
+      <div className="chat-ui">
         <div id="chatMessageList"></div>
       </div>
     )

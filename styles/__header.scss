@@ -1,4 +1,4 @@
-.header {
+.page-index .header {
   position: absolute;
   top: 0;
   left: 0;
@@ -24,9 +24,39 @@
       z-index: -1;
     }
   }
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 9999;
+
+  &__circle {
+    background: $white;
+  }
 
   @media (min-width: 1200px) {
-    // padding: 1.2rem 9.8rem;
+    display: block;
+    padding: 2.4rem;
+
+    &__circle {
+      width: 500px;
+      height: 500px;
+      border-radius: 100%;
+      background-color: $white;
+      position: absolute;
+      top: -250px;
+      left: -250px;
+      z-index: -1;
+    }
+  }
+
+  &__channel-name {
+    font-size: 1.6rem;
+    font-weight: $w-medium;
+    opacity: 0.8;
   }
 }
 

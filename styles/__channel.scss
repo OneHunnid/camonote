@@ -1,0 +1,21 @@
+.page-channel {
+  position: relative;
+
+  .form-search {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+
+  .chat-ui {
+    align-self: flex-end;
+    margin: 0 auto;
+    width: 600px;
+  }
+}
+
+.channel-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}

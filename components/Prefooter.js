@@ -1,9 +1,10 @@
+import Search from './Search.js'
 import Link from 'next/link'
 
 const Prefooter = () => (
     <div className="prefooter">
       <div className="prefooter__card">
-        <div className="button button--primary">Start or Find A Chat</div>
+        <Search />
         <div className="prefooter__description">
           Check it out. Chat Anonymously.
         </div>
