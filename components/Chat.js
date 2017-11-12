@@ -1,6 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import $ from 'jquery'
+import CommentBar from './CommentBar'
 
 export default class Chat extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ export default class Chat extends React.Component {
   }
   __createMessagesList() {
     const obj = this.props.data
-    console.log('OBJ', obj)
+
     _.forEach(obj, (value, key) => {
       const message = value.message
 
@@ -26,10 +27,7 @@ export default class Chat extends React.Component {
     return (
       <div className="chat-ui">
         <div id="chatMessageList"></div>
-        <form className="form-comment">
-          <input type="text" className="input-message" placeholder="Type a message..."/>
-          <div className="button--send">Send</div>
-        </form>
+          <CommentBar channelName={this.props.channelName}/>
       </div>
     )
   }

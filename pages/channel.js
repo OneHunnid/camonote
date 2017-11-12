@@ -25,7 +25,7 @@ class Channel extends React.Component {
           <Header channelName={this.props.url.query.name}/>
           <Search />
           <div className="channel-wrapper">
-            <Chat data={this.state.data}/>
+            <Chat data={this.state.data} channelName={this.props.url.query.name}/>
           </div>
         </div>
       </Layout>
