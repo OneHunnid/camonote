@@ -19,8 +19,6 @@ class Channel extends React.Component {
     })
   }
   render() {
-
-    console.log(this)
     return (
       <Layout>
         <div className="page-channel">

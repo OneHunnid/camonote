@@ -8,10 +8,8 @@ export default class Chat extends React.Component {
   }
   __createMessagesList() {
     const obj = this.props.data
-    const arrayByTime = _.sortBy(obj, 'timestamp');
-    const arrayReverse = _.reverse(arrayByTime)
-
-    _.forEach(arrayReverse, (value, key) => {
+    console.log('OBJ', obj)
+    _.forEach(obj, (value, key) => {
       const message = value.message
 
       $('#chatMessageList').append(
