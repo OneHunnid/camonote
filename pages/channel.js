@@ -15,6 +15,7 @@ class Channel extends React.Component {
     let fbData = getMessages(key)
 
     fbData.then((messages) => {
+      // messages doesn't return data...@todo
       this.setState({data: messages})
     })
   }
