@@ -4,6 +4,7 @@ import Chat from '../components/Chat.js'
 import Search from '../components/Search.js'
 import React from 'react'
 import getMessages from '../lib/get-messages.js'
+import db from './../lib/firebaseDb'
 
 class Channel extends React.Component {
   constructor(props) {
@@ -12,14 +13,36 @@ class Channel extends React.Component {
   }
   componentWillMount() {
     const key = this.props.url.query.name
-    let fbData = getMessages(key)
 
-    fbData.then((messages) => {
-      // messages doesn't return data...@todo
-      this.setState({data: messages})
-    })
+    db.collection(key)
+    .onSnapshot(querySnapshot => {
+      console.log(querySnapshot)
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data())
+        console.log(`${doc.id} => ${doc.data()}`);
+        const messages = doc.data()
+        this.setState({data: messages})
+      });
+    });
+
+    // db.collection(key).get().then((querySnapshot) => {
+      // querySnapshot.forEach((doc) => {
+      //   console.log(`${doc.id} => ${doc.data()}`);
+      //   const messages = doc.data()
+      //   this.setState({data: messages})
+      // });
+    // });
+
+    // db.collection(key)
+    // .onSnapshot(function(doc) {
+    //   console.log('onSnapshot called')
+    //     console.log("Current data: ", doc.data());
+    //     let messages = doc.data()
+    //     // this.setState({data: messages})
+    // });
   }
   render() {
+    console.log(this.state)
     return (
       <Layout>
         <div className="page-channel">

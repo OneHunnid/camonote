@@ -10,11 +10,14 @@ export default class Chat extends React.Component {
   __createMessagesList() {
     const obj = this.props.data
 
+    // console.log('CHAT PAGE ', obj)
+
     _.forEach(obj, (value, key) => {
-      const message = value.message
+      const message = obj.message
+      // console.log(obj.message)
 
       $('#chatMessageList').append(
-        $('<div/>')
+        $('<div>')
         .append($('</div>'))
         .addClass("chat__message")
         .append("<span/>")
