@@ -8,13 +8,13 @@ export default class Chat extends React.Component {
     super(props)
   }
   __createMessagesList() {
-    const obj = this.props.data
+    const data = this.props.data
+    console.log('CHAT PAGE ', data)
 
-    // console.log('CHAT PAGE ', obj)
+    let sortedMessages = _.sortBy(data, 'timestamp');
 
-    _.forEach(obj, (value, key) => {
-      const message = obj.message
-      // console.log(obj.message)
+    _.forEach(sortedMessages, (value, key) => {
+      const message = value.message
 
       $('#chatMessageList').append(
         $('<div>')
@@ -25,7 +25,13 @@ export default class Chat extends React.Component {
       );
     })
   }
+
+  componentDidMount() {
+
+  }
   render() {
+    // @TODO - Messages are duplicating because render() keeps firing everytime state get's updated (i.e messages are added to firebase)
+    // I need to move __createMEssageList() out of render() but I am not sure where... I need to learn how to update state properly
     this.__createMessagesList()
     return (
       <div className="chat-ui">

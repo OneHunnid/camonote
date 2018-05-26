@@ -16,33 +16,17 @@ class Channel extends React.Component {
 
     db.collection(key)
     .onSnapshot(querySnapshot => {
-      console.log(querySnapshot)
+      let dataArray = []
+
       querySnapshot.forEach((doc) => {
-        console.log(doc.data())
-        console.log(`${doc.id} => ${doc.data()}`);
-        const messages = doc.data()
-        this.setState({data: messages})
+        const snapshot = doc.data()
+        dataArray.push(snapshot)
       });
+
+      this.setState({data: dataArray})
     });
-
-    // db.collection(key).get().then((querySnapshot) => {
-      // querySnapshot.forEach((doc) => {
-      //   console.log(`${doc.id} => ${doc.data()}`);
-      //   const messages = doc.data()
-      //   this.setState({data: messages})
-      // });
-    // });
-
-    // db.collection(key)
-    // .onSnapshot(function(doc) {
-    //   console.log('onSnapshot called')
-    //     console.log("Current data: ", doc.data());
-    //     let messages = doc.data()
-    //     // this.setState({data: messages})
-    // });
   }
   render() {
-    console.log(this.state)
     return (
       <Layout>
         <div className="page-channel">
