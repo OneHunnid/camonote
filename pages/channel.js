@@ -11,6 +11,10 @@ class Channel extends React.Component {
     super(props)
     this.state = {data: {}};
   }
+  /** 
+   * Might want to get rid of componentWillMount here
+   * Source: https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html
+   * **/
   componentWillMount() {
     const key = this.props.url.query.name
 
