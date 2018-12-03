@@ -1,7 +1,6 @@
 import React from 'react'
 import $ from 'jquery'
 import moment from 'moment'
-
 import sendMessage from '../lib/send-message.js'
 
 export default class CommentBar extends React.Component {
@@ -17,8 +16,7 @@ export default class CommentBar extends React.Component {
     let channelName = this.props.channelName
     let time = moment().valueOf();
 
-    // Need to sanitize message
-
+    // @TODO need to sanitize message
     let messageObj = {
       message: searchValue,
       channel: channelName,
@@ -26,7 +24,6 @@ export default class CommentBar extends React.Component {
     }
 
     sendMessage(messageObj)
-
     inputMessage.val('')
   }
   render() {

@@ -1,42 +1,49 @@
 import React from 'react'
 import _ from 'lodash'
-import $ from 'jquery'
 import CommentBar from './CommentBar'
+import fire from '../lib/firebaseDb'
+
 
 export default class Chat extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      messages: []
+    }
   }
-  __createMessagesList() {
-    const data = this.props.data
-    console.log('CHAT PAGE ', data)
+  componentWillMount() {
+    // It's not sorting by timestamp...
+   let messagesRef = fire.database().ref('/hashtags/' + this.props.channelName).orderByChild('timestamp').limitToLast(100);
 
-    let sortedMessages = _.sortBy(data, 'timestamp');
-
-    _.forEach(sortedMessages, (value, key) => {
-      const message = value.message
-
-      $('#chatMessageList').append(
-        $('<div>')
-        .append($('</div>'))
-        .addClass("chat__message")
-        .append("<span/>")
-        .text(message)
-      );
+   messagesRef.on('child_added', snapshot => {
+     let message = { text: snapshot.val(), id: snapshot.key };
+       this.setState({ messages: [message].concat(this.state.messages)
+     });
     })
   }
-
-  componentDidMount() {
-
-  }
   render() {
-    // @TODO - Messages are duplicating because render() keeps firing everytime state get's updated (i.e messages are added to firebase)
-    // I need to move __createMEssageList() out of render() but I am not sure where... I need to learn how to update state properly
-    this.__createMessagesList()
+    const {channelName} = this.props
+
+    // const test = this.state.messages
+    // console.log(test.sortBy('timestamp'))
+    // console.log(this.state.messages)
+    
     return (
       <div className="chat-ui">
-        <div id="chatMessageList"></div>
-          <CommentBar channelName={this.props.channelName}/>
+        <div id="chatMessageList">
+        <ul>
+         {
+          this.state.messages.map(function(obj) {
+            const message = obj.text.message
+            const key = obj.text.timestamp
+
+            return <li key={key}>{message}</li>
+          })
+         }
+        </ul>
+        </div>
+
+        <CommentBar channelName={channelName} />
       </div>
     )
   }
