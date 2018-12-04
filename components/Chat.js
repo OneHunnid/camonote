@@ -12,35 +12,33 @@ export default class Chat extends React.Component {
     }
   }
   componentWillMount() {
-    // It's not sorting by timestamp...
-   let messagesRef = fire.database().ref('/hashtags/' + this.props.channelName).orderByChild('timestamp').limitToLast(100);
+   let messagesRef = fire.database().ref('/hashtags/' + this.props.channelName).orderByChild('timestamp').limitToLast(50);
 
-   messagesRef.on('child_added', snapshot => {
-     let message = { text: snapshot.val(), id: snapshot.key };
-       this.setState({ messages: [message].concat(this.state.messages)
-     });
+   messagesRef.on('value', snapshot => {
+      let messageObj = snapshot.val()
+      this.setState({
+        messages: _.map(messageObj)
+      })
     })
   }
   render() {
     const {channelName} = this.props
 
-    // const test = this.state.messages
-    // console.log(test.sortBy('timestamp'))
-    // console.log(this.state.messages)
-    
+    console.log('STATE', this.state)
+
     return (
       <div className="chat-ui">
         <div id="chatMessageList">
-        <ul>
-         {
-          this.state.messages.map(function(obj) {
-            const message = obj.text.message
-            const key = obj.text.timestamp
+          <ul>
+            {
+             this.state.messages.map(function(obj) {
+               const message = obj.message
+               const key = obj.timestamp
 
-            return <li key={key}>{message}</li>
-          })
-         }
-        </ul>
+               return <li key={key}>{message}</li>
+             })
+            }
+          </ul>
         </div>
 
         <CommentBar channelName={channelName} />
