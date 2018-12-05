@@ -63,5 +63,11 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     opacity: 0.8;
     margin-bottom: 16px;
+    width: 100%;
   }
+}
+
+.chat-wrapper {
+  height: calc(100vh - 53px);
+  overflow-y: scroll;
 }

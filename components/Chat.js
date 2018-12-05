@@ -1,7 +1,9 @@
 import React from 'react'
+import $ from 'jquery'
+import fire from '../lib/firebaseDb'
 import _ from 'lodash'
 import CommentBar from './CommentBar'
-import fire from '../lib/firebaseDb'
+import MessageBubble from './MessageBubble'
 
 
 export default class Chat extends React.Component {
@@ -21,24 +23,26 @@ export default class Chat extends React.Component {
       })
     })
   }
+  componentDidMount() {
+    function scrollToBottom() {
+      // this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+      console.log(document)
+    }
+
+    scrollToBottom()
+  }
   render() {
     const {channelName} = this.props
-
-    console.log('STATE', this.state)
+    const messagesArr = this.state.messages
 
     return (
       <div className="chat-ui">
-        <div id="chatMessageList">
-          <ul>
-            {
-             this.state.messages.map(function(obj) {
-               const message = obj.message
-               const key = obj.timestamp
+        <div id="chatMessageList" className="chat-wrapper">
+            {messagesArr.map(obj => {
+                return <MessageBubble message={obj.message} key={obj.timestamp}/>
+            })}
 
-               return <li key={key}>{message}</li>
-             })
-            }
-          </ul>
+            <div id="foo" ref='messagesEnd'></div>
         </div>
 
         <CommentBar channelName={channelName} />
