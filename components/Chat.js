@@ -2,6 +2,7 @@ import React from 'react'
 import $ from 'jquery'
 import fire from '../lib/firebaseDb'
 import _ from 'lodash'
+import ScrollableFeed from 'react-scrollable-feed'
 import CommentBar from './CommentBar'
 import MessageBubble from './MessageBubble'
 
@@ -23,27 +24,17 @@ export default class Chat extends React.Component {
       })
     })
   }
-  componentDidMount() {
-    function scrollToBottom() {
-      // this.messagesEnd.scrollIntoView({ behavior: "smooth" });
-      console.log(document)
-    }
-
-    scrollToBottom()
-  }
   render() {
     const {channelName} = this.props
     const messagesArr = this.state.messages
 
     return (
       <div className="chat-ui">
-        <div id="chatMessageList" className="chat-wrapper">
+        <ScrollableFeed>
             {messagesArr.map(obj => {
                 return <MessageBubble message={obj.message} key={obj.timestamp}/>
             })}
-
-            <div id="foo" ref='messagesEnd'></div>
-        </div>
+        </ScrollableFeed>
 
         <CommentBar channelName={channelName} />
       </div>
